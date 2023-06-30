@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Le Petit Chef</title>
+  </head>
+  <body>
+   <div class="wrapper">
+    <header class="header">
+        <img src="logo.svg" alt="" class="logo"/>
+        <p>CHERCHEZ PARMI PLUS DE 1500 RECETTES <br/>
+            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</p>
+            <form action="" class="form">
+                <input  type="text" placeholder="Rechercher une recette, un ingrédient, ...">
+                <img src="loop.svg" alt="">
+            </form>
+    </header>
+    <main id="main">
+        <section class="options-section">
+            <div>
+              <p>Ingrédients </p>
+              <img src="./assets/utils/vectordown.svg" alt="">
+            </div>
+        </section>
+        <section class="card-section">
+          <div class="card">
+            <div class="card-image">
+              <img src="./assets/Recette01.jpg" alt="">
+              <div class="card-timer">10min</div>
+            </div>
+            <div class="card-content">
+              <div class="card-content-title">
+               <h1>Limonade coco</h1>
+              </div>
+              <div class="card-content-recipe">
+                <h2>recette</h2>
+                <p>Mettre les glaçons à votre goût dans le blender, Ajouter le lait  la crème de coco, le jus de 2 citrons et le sucre ensemble. Mixer jusqu'à obtenir la consistance désirée.</p>
+              </div>
+              <div class="card-content-ingredient">
+                <h2>ingrédients</h2>
+                <ul>
+                  <li>Lait de coco <span>400ml</span> </li>
+                  <li>Créme de coco<span>4 cuillères</span></li>
+                  <li>Glaçons<span>2</span></li>
+                  <li>Jus de citron<span>2</span></li>
+                  <li>Sucre<span>20g</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
+   </div>
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>
