@@ -1,4 +1,4 @@
-[
+export const recipesArray = [
     {
         "id": 1,
         "image": "Recette01.jpg",

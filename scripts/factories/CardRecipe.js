@@ -1,56 +1,66 @@
-function cardRecipeFactory(data) {
-    const { name, image, servings, id, ingredients, time } = data;
+export function cardRecipeFactory(data) {
+    const { name, image, servings, id, ingredients, time, description } = data;
     const picture = `assets/${image}`;
 
-    
-   
-    
-
-
-//  LE HEADER DE NOTRE CARD AVEC SON IMAGE ET LE TIMERE
-    function cardRecipeFactoryDOM() {
-        const recipeCardHeader = document.createElement('div');
-        recipeCardHeader.className = 'card';
-        recipeCardHeader.textContent = name;
-
-        const img = getCardImageDOM();
-
-        const clock = document.createElement('p');
-        clock.className = 'card-timer';
-        clock.textContent = time; 
-
-        recipeCardHeader.appendChild(img);
-        recipeCardHeader.appendChild(clock);    
+    // LE HEADER DE NOTRE CARD AVEC SON IMAGE ET LE TIMER
+    function getCardRecipeHeaderDOM() {
+        const recipeCardHeader = `
+        <div class="card-image">
+            <img src="${picture}" alt="">
+            <p class="card-timer">
+                ${time}min
+            </p>
+        </div>
+        `;
+        return recipeCardHeader;
     }
 
-    function getCardImageDOM() {
-        const img = document.createElement('img');
-        img.setAttribute('src', image);
-        img.setAttribute('alt', name);
-        img.setAttribute('loading', 'lazy');
+    // LE CONTENU DESCRIPTIF DE LA CARD
+    function getRecipeCardDescriptionDOM() {
+        let recipeCardIngredients = "";
 
-        return (img);
-    }
-     return (getCardImageDOM, cardRecipeFactoryDOM);
-
-
-
-     function getRecipeCardDOM() {
-       recipeCardIngredients = "";
-
-        ingrediends.forEach((element) => {
+        ingredients.forEach((element) => {
             const recipeName = element.ingredient;
             const recipeQuantity = element.quantity ? element.quantity : "";
             const recipeUnit = element.unit ? element.unit : "";
 
-           function recipeCardIngredients() {
-//  INSERER LE DOM ICI POUR LA DESCRIPTION
-           }
+            recipeCardIngredients += `
+            <li class="">
+                <p class="ingredient-list">${recipeName}</p>
+                <p class="ingredient-unit">${recipeQuantity} ${recipeUnit}</p>
+            </li>
+            `;
+        });
 
+        const recipeCardDescription = `
+        <div class="card-content-ingredient">
+            <h2>${name}</h2>
+            <h3>recette</h3>
+            <p>${description}</p>
+            <h3>ingrédients</h3>
+            <ul>
+                ${recipeCardIngredients}
+            </ul>
+        </div>
+        `;
 
-        
-        })
-     }
-    //  CREER LE DOM POUR LA CARD EN GENERAL GENRE EN LISTE DE CARDS
+        return recipeCardDescription;
+    }
+
+    function getRecipeCardDOM() {
+        const listItem = document.createElement("li");
+        listItem.className = ""; 
+
+        const recipeCard = document.createElement("div");
+        recipeCard.className = "card-content"; 
+
+        recipeCard.innerHTML += getCardRecipeHeaderDOM();
+        recipeCard.innerHTML += getRecipeCardDescriptionDOM();
+
+        listItem.append(recipeCard);
+
+        return listItem;
+    }
+
+    return { getRecipeCardDOM };
 }
-

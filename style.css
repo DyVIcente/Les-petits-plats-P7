@@ -2,9 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   /* header */
+
+
 
 .header {
     background-image: url("./assets/headerImage.png");
@@ -59,111 +62,116 @@ main {
     height: 100%;
 }
 
+
 /* card test */
 
-.card-section {
-    padding: 10rem 0;
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
 }
-.card {
-    width: 380px;
-    margin: 0 auto;
+
+.card-content {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     border-radius: 25px;
+    width: 380px;
+    position: relative;
+    min-height: 731px;
 }
 
 .card-image {
+    /* background-color: white; */
+    width: 380px;
     height: 253px;
-    position: relative;
     overflow: hidden;
-    border-top-left-radius: 25px;
+    object-fit: cover;
     border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
 }
 
 .card-timer {
     position: absolute;
-    left: 80%;
-    top: 10%;
-    background:#FFD15B ;
-    color: black;
+    top: 20px;
+    right:20px;
+    background-color: #FFD15B;
     padding: 5px 15px 5px 15px;
     border-radius: 14px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16.39px;
-    font-family: manrope;
 }
 
-.card-image img {
-    object-fit: cover;
-    width: 380px;
-    height: 253px;
-    position: absolute;
+.card-image > img {
+  object-fit: contain;
+  width: 380px;
 }
 
-.card-content {
-    padding: 2rem 2rem;
-    padding-bottom: 3rem;
-    font-family: manrope;
+.card-content-ingredient {
+    display: flex;
+    flex-direction: column;
 }
-
-.card-content-title h1 {
-    font-family: Anton;
+.card-content-ingredient > h2 {
     font-size: 18px;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-family: Anton;
     line-height: 27.1px;
 }
 
-.card-content-recipe {
-    padding: 1rem 0;
-}
-
-.card-content-recipe h2{
-    padding: 1rem 0;
+.card-content-ingredient > h3 {
+    color: #7A7A7A;
+    font-family: manrope;
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: 700;
     line-height: 16.39px;
-    color: #7A7A7A;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
 
-.card-content-recipe p{
-    padding: 1rem 0;
+.card-content-ingredient > p {
+    overflow-wrap: normal;
+    font-family: manrope;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-size: 14px;
     font-weight: 400;
+    line-height: 19.12px;
+    max-height: 76px;
+    overflow: hidden;
+}
+
+.card-content-ingredient > ul {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+}
+
+.ingredient-list {
+    font-family: manrope;
     font-size: 14px;
     line-height: 19.12px;
 }
 
-.card-content-ingredient h2{
-    padding: 0 0 1rem 0;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16.39px;
+.ingredient-unit {
+    font-family: manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.12px;
     color: #7A7A7A;
 }
-.card-content-ingredient ul{
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-}
 
-.card-content-ingredient li {
-    display: flex ;
-    flex-direction: column;
-    
-    width: 100px;
-}
-
-.card-content-ingredient li span {
-    color: gray;
-}
 
 
 /* dropdown test */
-.options-section {
+/* .options-section {
     padding: 2rem;
-}
-.options-section  div{
+} */
+/* .options-section  div{
    background-color: white;
    padding: 1rem;
    max-width: min-content;
@@ -171,4 +179,4 @@ main {
    border-radius: 11px;
    display: flex;
    gap: 1rem;
-}
+} */
