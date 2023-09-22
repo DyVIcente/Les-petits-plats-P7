@@ -119,119 +119,119 @@ async function refreshFilterArrays() {
 }
 
 // render all elements avec forEach
-// async function renderAllElements() {
-//   await refreshFilterArrays();
-
-//   renderRecipeCards(filteredRecipesArray);
-        
-//   listArrayMapping.forEach((element) => {
-//     renderFilterListItems(element.list, element.array);
-//   });
-//   if (filteredRecipesArray.length === 0) {
-//     const searchInput = document.querySelector("#searchFormInput");
-//     const searchText = searchInput.value; 
-  
-  
-//     noResultsMessage.textContent = `Aucune recette ne contient  "${searchText}". Vous pouvez chercher «
-//     tarte aux pommes »,  « poisson », etc.`;
-  
-//     noResultsMessage.style.display = "block";
-//   } else {
-//     noResultsMessage.style.display = "none";
-//   }
-// }
-
-
-// renderall element mais avec boucle for
 async function renderAllElements() {
   await refreshFilterArrays();
 
   renderRecipeCards(filteredRecipesArray);
-
-  for (let i = 0; i < listArrayMapping.length; i++) {
-    const element = listArrayMapping[i];
+        
+  listArrayMapping.forEach((element) => {
     renderFilterListItems(element.list, element.array);
-  }
-
-  const searchInput = document.querySelector("#searchFormInput");
-  const searchText = searchInput.value; 
-
+  });
   if (filteredRecipesArray.length === 0) {
-   
-    noResultsMessage.textContent = `Aucune recette ne contient  "${searchText}". Vous pouvez chercher « tarte aux pommes »,  « poisson », etc.`;
-
-    noResultsMessage.style.display = "block"; 
+    const searchInput = document.querySelector("#searchFormInput");
+    const searchText = searchInput.value; 
+  
+  
+    noResultsMessage.textContent = `Aucune recette ne contient  "${searchText}". Vous pouvez chercher «
+    tarte aux pommes »,  « poisson », etc.`;
+  
+    noResultsMessage.style.display = "block";
   } else {
-    noResultsMessage.style.display = "none"; 
+    noResultsMessage.style.display = "none";
   }
 }
+
+
+// renderall element mais avec boucle for
+// async function renderAllElements() {
+//   await refreshFilterArrays();
+
+//   renderRecipeCards(filteredRecipesArray);
+
+//   for (let i = 0; i < listArrayMapping.length; i++) {
+//     const element = listArrayMapping[i];
+//     renderFilterListItems(element.list, element.array);
+//   }
+
+//   const searchInput = document.querySelector("#searchFormInput");
+//   const searchText = searchInput.value; 
+
+//   if (filteredRecipesArray.length === 0) {
+   
+//     noResultsMessage.textContent = `Aucune recette ne contient  "${searchText}". Vous pouvez chercher « tarte aux pommes »,  « poisson », etc.`;
+
+//     noResultsMessage.style.display = "block"; 
+//   } else {
+//     noResultsMessage.style.display = "none"; 
+//   }
+// }
 
 //  ICI CHANGE LECOUTE POUR LE BTN 
 // LES EVENTS LISTENERS
 
 // ecoute de l'input et utilisation de filter 
-// const searchInput = document.querySelector("#searchFormInput");
-
-// searchInput.addEventListener("input", () => {
-//   const startTime = performance.now();
-//   const searchText = searchInput.value.toLowerCase();
-
-//   if (searchText.length < 3) {
-//     filteredRecipesArray = recipesArray; 
-//     console.log("Le texte doit contenir au moins 3 caractères.");
-//   } else {
-//     filteredRecipesArray = recipesArray.filter((recipe) => {
-//       const title = recipe.name.toLowerCase();
-//       const ingredients = recipe.ingredients.join(" ").toLowerCase();
-//       const description = recipe.description.toLowerCase();
-      
-//       return title.includes(searchText) || ingredients.includes(searchText) || description.includes(searchText);
-//     });
-
-//     console.log("Recherche input principal", filteredRecipesArray);
-//   }
-
-//   renderAllElements();
-//   const endTime = performance.now(); 
-//    const executionTime = endTime - startTime;
-//   console.log(`Le filtrage des recettes a pris ${executionTime} millisecondes.`);
-// });
-
-// ecoute de l'input et utilisation de boucle for
 const searchInput = document.querySelector("#searchFormInput");
 
 searchInput.addEventListener("input", () => {
   const startTime = performance.now();
-
   const searchText = searchInput.value.toLowerCase();
 
   if (searchText.length < 3) {
     filteredRecipesArray = recipesArray; 
     console.log("Le texte doit contenir au moins 3 caractères.");
   } else {
-    filteredRecipesArray = [];
-
-    for (let i = 0; i < recipesArray.length; i++) {
-      const recipe = recipesArray[i];
+    filteredRecipesArray = recipesArray.filter((recipe) => {
       const title = recipe.name.toLowerCase();
       const ingredients = recipe.ingredients.join(" ").toLowerCase();
       const description = recipe.description.toLowerCase();
-
-      if (title.includes(searchText) || ingredients.includes(searchText) || description.includes(searchText)) {
-        filteredRecipesArray.push(recipe);
-      }
-    }
+      
+      return title.includes(searchText) || ingredients.includes(searchText) || description.includes(searchText);
+    });
 
     console.log("Recherche input principal", filteredRecipesArray);
   }
 
   renderAllElements();
-
   const endTime = performance.now(); 
-  const executionTime = endTime - startTime;
-
+   const executionTime = endTime - startTime;
   console.log(`Le filtrage des recettes a pris ${executionTime} millisecondes.`);
 });
+
+// ecoute de l'input et utilisation de boucle for
+// const searchInput = document.querySelector("#searchFormInput");
+
+// searchInput.addEventListener("input", () => {
+//   const startTime = performance.now();
+
+//   const searchText = searchInput.value.toLowerCase();
+
+//   if (searchText.length < 3) {
+//     filteredRecipesArray = recipesArray; 
+//     console.log("Le texte doit contenir au moins 3 caractères.");
+//   } else {
+//     filteredRecipesArray = [];
+
+//     for (let i = 0; i < recipesArray.length; i++) {
+//       const recipe = recipesArray[i];
+//       const title = recipe.name.toLowerCase();
+//       const ingredients = recipe.ingredients.join(" ").toLowerCase();
+//       const description = recipe.description.toLowerCase();
+
+//       if (title.includes(searchText) || ingredients.includes(searchText) || description.includes(searchText)) {
+//         filteredRecipesArray.push(recipe);
+//       }
+//     }
+
+//     console.log("Recherche input principal", filteredRecipesArray);
+//   }
+
+//   renderAllElements();
+
+//   const endTime = performance.now(); 
+//   const executionTime = endTime - startTime;
+
+//   console.log(`Le filtrage des recettes a pris ${executionTime} millisecondes.`);
+// });
 
 
 FilterContainers.forEach((element) => {
