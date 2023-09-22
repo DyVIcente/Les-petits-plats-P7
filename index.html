@@ -5,37 +5,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Le Petit Chef</title>
   </head>
   <body>
-   <div class="wrapper">
-    <header class="header">
-        <img src="logo.svg" alt="" class="logo"/>
-        <p>CHERCHEZ PARMI PLUS DE 1500 RECETTES <br/>
-            DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</p>
-            <form action="" class="form">
-                <input  type="text" placeholder="Rechercher une recette, un ingrédient, ...">
-                <img src="loop.svg" alt="">
-            </form>
-    </header>
-    <main id="main">
+    <div class="wrapper">
+      <header class="header">
+        <img src="logo.svg" alt="" class="logo" />
+        <p>
+          CHERCHEZ PARMI PLUS DE 1500 RECETTES <br />
+          DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
+        </p>
+        <form class="form" id="searchFormId">
+          <input
+          id="searchFormInput"
+            type="text"
+            placeholder="Rechercher une recette, un ingrédient, ..."
+          />
+          <img src="loop.svg" alt="" />
+        </form>
+      </header>
+      <main id="main">
         <section class="options-section">
-            <div>
-              <p>Ingrédients </p>
-              <img src="./assets/utils/vectordown.svg" alt="">
+          <form class="form formFilterList">
+            <div class="filter">
+
+              <div class="filter-container" id="ingredientsFilter">
+                
+                <button class="dropdown-toggle ingredient-toggle">
+                  Ingrédients
+                  <img src="./assets/utils/vectordown.svg" alt="" />
+                </button>
+                
+           
+                <span class="filter-span">
+                  <input class="filter-input hidden" id="ingredientsInput" type="text">
+                </span>
+                <ul class="filter-list" id="ingredientsList" aria-hidden="true"></ul>
+            
+              </div>
+
+              <div class="filter-container" id="appliancesFilter">
+
+                <button class="dropdown-toggle ingredient-toggle">
+                  Appareils
+                  <img src="./assets/utils/vectordown.svg" alt="" />
+                </button>
+
+                <span class="filter-span">
+                  <input class="filter-input hidden" id="appliancesInput" type="text" >
+                </span>
+                <ul class="filter-list" id="appliancesList" aria-hidden="true"></ul>
+              </div>
+
+
+              <div class="filter-container" id="ustensilsFilter">
+                <button class="dropdown-toggle ingredient-toggle">
+                  Ustensiles
+                  <img src="./assets/utils/vectordown.svg" alt="" />
+                </button>
+                <span class="filter-span">
+                  <input class="filter-input hidden" id="ustensilsInput" type="text" >
+                </span>
+                <ul class="filter-list" id="ustensilsList" aria-hidden="true"></ul>
+              </div>
+
+
+              <p class="recipe-count"></p>
             </div>
+            <div class="tag-container"></div>
+          </form>
+          <div class="tag-container"></div>
         </section>
+        <div id="noResultsMessage" style="display: none;"></div>
+
+
         <section class="options-section">
-        <ul class="recipes"></ul>
-      </section>
-    </main>
-   </div>
+          <ul class="recipes"></ul>
+        </section>
+      </main>
+    </div>
     <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
